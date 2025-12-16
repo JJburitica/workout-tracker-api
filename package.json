@@ -1,0 +1,24 @@
+{
+  "name": "task-tracker-api",
+  "version": "1.0.0",
+  "description": "API REST para rastrear y administrar tareas",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [
+    "task",
+    "tracker",
+    "api",
+    "rest"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

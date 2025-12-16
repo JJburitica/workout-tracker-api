@@ -1,0 +1,225 @@
+{
+  "info": {
+    "name": "Task Tracker API",
+    "description": "Colección de ejemplos de prueba para la API Task Tracker",
+    "version": "1.0.0"
+  },
+  "item": [
+    {
+      "name": "Verificar Servidor",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/health",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["health"]
+        },
+        "description": "Verifica que el servidor está funcionando correctamente"
+      }
+    },
+    {
+      "name": "Obtener Todas las Tareas",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/tasks",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["tasks"]
+        },
+        "description": "Obtiene la lista completa de todas las tareas"
+      }
+    },
+    {
+      "name": "Crear Nueva Tarea",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"description\": \"Nueva tarea importante\"}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/tasks",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["tasks"]
+        },
+        "description": "Crea una nueva tarea con estado 'todo'"
+      }
+    },
+    {
+      "name": "Obtener Tarea por ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/tasks/{{TASK_ID}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["tasks", "{{TASK_ID}}"]
+        },
+        "description": "Obtiene una tarea específica por su ID. Reemplaza {{TASK_ID}} con un ID real"
+      }
+    },
+    {
+      "name": "Actualizar Tarea - Cambiar Estado",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"status\": \"in-progress\"}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/tasks/{{TASK_ID}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["tasks", "{{TASK_ID}}"]
+        },
+        "description": "Actualiza el estado de una tarea. Estados válidos: todo, in-progress, done"
+      }
+    },
+    {
+      "name": "Actualizar Tarea - Cambiar Descripción",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"description\": \"Descripción actualizada\"}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/tasks/{{TASK_ID}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["tasks", "{{TASK_ID}}"]
+        },
+        "description": "Actualiza la descripción de una tarea"
+      }
+    },
+    {
+      "name": "Actualizar Tarea - Ambos Campos",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"description\": \"Nueva descripción\", \"status\": \"done\"}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/tasks/{{TASK_ID}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["tasks", "{{TASK_ID}}"]
+        },
+        "description": "Actualiza tanto la descripción como el estado de una tarea"
+      }
+    },
+    {
+      "name": "Eliminar Tarea",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/tasks/{{TASK_ID}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["tasks", "{{TASK_ID}}"]
+        },
+        "description": "Elimina una tarea por su ID"
+      }
+    },
+    {
+      "name": "Obtener Tareas Completadas",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/tasks/status/completed",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["tasks", "status", "completed"]
+        },
+        "description": "Obtiene todas las tareas con estado 'done'"
+      }
+    },
+    {
+      "name": "Obtener Tareas No Completadas",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/tasks/status/incomplete",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["tasks", "status", "incomplete"]
+        },
+        "description": "Obtiene todas las tareas que no están completadas (estado != done)"
+      }
+    },
+    {
+      "name": "Obtener Tareas En Progreso",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/tasks/status/in-progress",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["tasks", "status", "in-progress"]
+        },
+        "description": "Obtiene todas las tareas con estado 'in-progress'"
+      }
+    },
+    {
+      "name": "Obtener Tareas Por Estado Genérico",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/tasks/status/todo",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["tasks", "status", "todo"]
+        },
+        "description": "Obtiene tareas por estado específico. Estados válidos: todo, in-progress, done"
+      }
+    }
+  ]
+}
